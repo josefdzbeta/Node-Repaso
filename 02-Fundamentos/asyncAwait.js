@@ -51,23 +51,23 @@ const getSalario = (id, callback) =>{
      })
 }
 
+const getInfoUsuario = async (id) =>{
 
-const id = 1
+    try {
+        const empleado = await getEmpleado(id)
+        const salario = await getSalario(id)
+        return `El salario del empleado ${empleado} es de: ${salario}`
+    } catch (error) {
+        throw error //call reject
+    }
+    
+}
 
-// getEmpleado(id)
-//     .then(empleado =>console.log(empleado))
-//     .catch( err => console.log(err))
 
-// getSalario(id)
-//     .then(salarioEmpleado =>console.log(salarioEmpleado))
-//     .catch( err => console.log(err))
+getInfoUsuario(id)
+    .then (msg => console.log(msg))
+    .catch (err => console.log(err))
 
-let nombre; 
+const id = 1;
 
-getEmpleado(id)
-    .then(empleado => {
-        nombre = empleado; 
-       return getSalario(id)        
-    })
-    .then(salario =>console.log('El empleado:', nombre, 'tiene un salario:', salario))
-    .catch(err => console.log(err))
+
