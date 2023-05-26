@@ -3,3 +3,6 @@ node_modules/
 
 # Ignore npm debug log file
 npm-debug.log
+
+#Ignore tablas de multiplicar
+salida/
